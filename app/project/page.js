@@ -9,8 +9,8 @@ const projectList = [
     tech: "React, Tailwind CSS, Swiper.js",
     description:
       "A responsive hotel booking platform with carousel, room listing, and booking form.",
-    demoLink: "#",
-    codeLink: "#",
+    demoLink: "https://hotel-website-eosin.vercel.app/",
+    codeLink: "https://github.com/vickybisht001",
   },
   {
     title: "Employee Management System",
@@ -18,7 +18,7 @@ const projectList = [
     description:
       "A desktop/web app with login, CRUD operations, and employee reports.",
     demoLink: "#",
-    codeLink: "#",
+    codeLink: "https://github.com/vickybisht001",
   },
   {
     title: "Netflix Clone",
@@ -26,7 +26,7 @@ const projectList = [
     description:
       "A fully responsive Netflix clone with homepage and UI effects.",
     demoLink: "#",
-    codeLink: "#",
+    codeLink: "https://github.com/vickybisht001",
   },
   {
     title: "Amazon Clone",
@@ -34,7 +34,7 @@ const projectList = [
     description:
       "A responsive Amazon home page clone with product layout design.",
     demoLink: "#",
-    codeLink: "#",
+    codeLink: "https://github.com/vickybisht001",
   },
   {
     title: "Restaurant Website",
@@ -42,15 +42,15 @@ const projectList = [
     description:
       "A restaurant website where users can reserve tables, view the menu, and contact the team.",
     demoLink: "#",
-    codeLink: "#",
+    codeLink: "https://github.com/vickybisht001",
   },
   {
     title: "Coffee Café Website",
     tech: "React, CSS, Express.js, MongoDB",
     description:
       "A modern café website with table reservation, menu section, and contact form integration.",
-    demoLink: "#",
-    codeLink: "#",
+    demoLink: "https://coffee-cafe-website-sigma.vercel.app/",
+    codeLink: "https://github.com/vickybisht001",
   },
   {
     title: "Gym Template",
@@ -58,7 +58,7 @@ const projectList = [
     description:
       "A clean and responsive gym website template with homepage, pricing, and contact features.",
     demoLink: "#",
-    codeLink: "#",
+    codeLink: "https://github.com/vickybisht001",
   },
 ];
 
