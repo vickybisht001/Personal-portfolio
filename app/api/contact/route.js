@@ -16,6 +16,8 @@ const connectDB = async () => {
       dbName: "portfolio", 
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      ssl: true,
+      tlsAllowInvalidCertificates: false
     });
     isConnected = true;
     console.log("✅ MongoDB connected");
@@ -67,4 +69,5 @@ export async function POST(req) {
     );
   }
 }
+
 
