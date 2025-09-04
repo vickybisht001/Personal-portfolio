@@ -29,7 +29,7 @@ export default function Home() {
         <p className="text-gray-700 dark:text-gray-400 text-lg leading-relaxed max-w-2xl animate-fade-in delay-200">
           I specialize in building responsive and user-friendly websites using
           modern technologies like <strong>React.js</strong>,{" "}
-          <strong>Tailwind CSS</strong>, <strong> Express.js</strong>, <strong>Python</strong>, and{" "}
+          <strong>Tailwind CSS</strong>, <strong>Node.js</strong>, <strong> Express.js</strong>, <strong>Python</strong>, and{" "}
           <strong>MongoDB</strong>. I love turning ideas into scalable digital
           solutions that offer a seamless user experience.
         </p>
