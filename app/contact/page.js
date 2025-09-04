@@ -134,7 +134,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className={`flex mx-auto px-6 py-2 rounded text-white transition ${
+                  className={`flex mx-auto cursor-pointer px-6 py-2 rounded text-white transition ${
                     isLoading
                       ? "bg-blue-400 cursor-not-allowed"
                       : "bg-blue-600 hover:bg-blue-700"
