@@ -1,24 +1,15 @@
 import mongoose from "mongoose";
+import nodemailer from "nodemailer";
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-if (!MONGODB_URI) {
-  throw new Error("MongoDB URI not found in environment variables");
-}
-
 let isConnected = false;
 
+// MongoDB connection
 const connectDB = async () => {
   if (isConnected) return;
-
   try {
-    await mongoose.connect(MONGODB_URI, {
-      dbName: "portfolio", 
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      ssl: true,
-      tlsAllowInvalidCertificates: false
-    });
+    await mongoose.connect(MONGODB_URI, { dbName: "portfolio" });
     isConnected = true;
     console.log("✅ MongoDB connected");
   } catch (error) {
@@ -27,14 +18,12 @@ const connectDB = async () => {
   }
 };
 
+// Schema
 const contactSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  message: { type: String, required: true },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  name: String,
+  email: String,
+  message: String,
+  createdAt: { type: Date, default: Date.now },
 });
 
 const Contact =
@@ -47,27 +36,46 @@ export async function POST(req) {
 
     if (!name || !email || !message) {
       return new Response(
-        JSON.stringify({ success: false, error: "All fields are required." }),
+        JSON.stringify({ success: false, error: "All fields required" }),
         { status: 400 }
       );
     }
 
+    // 1. Save to MongoDB
     await connectDB();
-
     const newMessage = new Contact({ name, email, message });
     await newMessage.save();
 
-    return new Response(JSON.stringify({ success: true }), {
-      status: 201,
-      headers: { "Content-Type": "application/json" },
+    // 2. Send Email Notification
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS, 
+      },
     });
+
+    const mailOptions = {
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+      to: process.env.RECEIVER_EMAIL,
+      subject: "New Contact Message 🚀",
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    return new Response(
+      JSON.stringify({ success: true, message: "Message saved & email sent!" }),
+      {
+        status: 201,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   } catch (error) {
-    console.error("❌ Error saving contact:", error);
+    console.error("❌ Error:", error);
     return new Response(
       JSON.stringify({ success: false, error: "Internal Server Error" }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
+      { status: 500 }
     );
   }
 }
-
-
