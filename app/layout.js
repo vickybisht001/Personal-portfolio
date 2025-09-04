@@ -22,6 +22,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="hydrated">
+      <meta property="og:title" content="Jitendra | Full-Stack Developer" />
+      <meta property="og:description" content="Portfolio of Jitendra - Full-Stack Developer skilled in React, Python, MongoDB, and modern web technologies." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://yourdomain.com" />
+      <meta property="og:image" content="/preview.png" />
+      <meta name="twitter:card" content="summary_large_image" />
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -35,3 +42,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
