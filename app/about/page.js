@@ -33,7 +33,7 @@ const About = () => {
         <div className="max-w-3xl mx-auto">
           {/* Profile Image */}
           <img
-            src="/me.jpg" 
+            src="/me.png" 
             alt="Jitendra Bisht"
             className="w-32 h-32 mx-auto rounded-full shadow-lg mb-6 border-4 border-blue-600"
           />
@@ -129,5 +129,6 @@ const About = () => {
 };
 
 export default About;
+
 
 
